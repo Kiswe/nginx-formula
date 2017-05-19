@@ -36,6 +36,10 @@ include:
 {% if nginx.get('with_openresty', false) %}
   - nginx.openresty
 {% endif -%}
+{% if nginx.get('with_kafka', false) %}
+  - nginx.kafka
+{% endif -%}
+
 
 
 nginx_group:
