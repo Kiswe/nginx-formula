@@ -10,6 +10,7 @@ get-librdkafka:
   file.managed:
     - name: {{ librdkafka_package }}
     - source: https://github.com/edenhill/librdkafka/archive/v0.9.5.tar.gz
+    - skip_verify: True
   cmd.wait:
     - cwd: {{ source }}
     - name: tar -zxf {{ librdkafka_package }} -C {{ home }}
@@ -30,6 +31,7 @@ get-nginx-kafka:
   file.managed:
     - name: {{ nginxkafka_package }}
     - source: https://github.com/brg-liuwei/ngx_kafka_module/releases/tag/v0.9.1
+    - skip_verify: True
   cmd.wait:
     - cwd: {{ source }}
     - name: tar -zxf {{ nginxkafka_package }} -C {{ home }}
