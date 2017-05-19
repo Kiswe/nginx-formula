@@ -7,7 +7,7 @@
 get-librdkafka:
   file.managed:
     - name: {{ librdkafka_package }}
-    - source: {{ https://github.com/edenhill/librdkafka/archive/v0.9.5.tar.gz }}
+    - source: https://github.com/edenhill/librdkafka/archive/v0.9.5.tar.gz
   cmd.wait:
     - cwd: {{ source }}
     - name: tar -zxf {{ librdkafka_package }} -C {{ home }}
@@ -27,7 +27,7 @@ install-librdkafka:
 get-nginx-kafka:
   file.managed:
     - name: {{ nginx-kafka_package }}
-    - source: {{ https://github.com/brg-liuwei/ngx_kafka_module/releases/tag/v0.9.1 }}
+    - source: https://github.com/brg-liuwei/ngx_kafka_module/releases/tag/v0.9.1
   cmd.wait:
     - cwd: {{ source }}
     - name: tar -zxf {{ nginx-kafka_package }} -C {{ home }}
