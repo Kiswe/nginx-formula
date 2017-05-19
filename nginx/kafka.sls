@@ -1,6 +1,8 @@
 {% set nginx = pillar.get('nginx', {}) -%}
 {% set home = nginx.get('home', '/var/www') -%}
 {% set source = nginx.get('source_root', '/usr/local/src') -%}
+{% set librdkafka_package = source + '/librdkafka-' + 0.9.5 + '.tar.gz' -%}
+{% set nginxkafka_package = source + '/nginx_kafka_module-' + '0.9.1' + '.tar.gz' -%}
 
 
 
@@ -26,11 +28,11 @@ install-librdkafka:
 
 get-nginx-kafka:
   file.managed:
-    - name: {{ nginx_kafka_package }}
+    - name: {{ nginxkafka_package }}
     - source: https://github.com/brg-liuwei/ngx_kafka_module/releases/tag/v0.9.1
   cmd.wait:
     - cwd: {{ source }}
-    - name: tar -zxf {{ nginx_kafka_package }} -C {{ home }}
+    - name: tar -zxf {{ nginxkafka_package }} -C {{ home }}
     - watch:
       - file: get-nginx-kafka
 
