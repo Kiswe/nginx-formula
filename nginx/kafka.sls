@@ -26,11 +26,11 @@ install-librdkafka:
 
 get-nginx-kafka:
   file.managed:
-    - name: {{ nginx-kafka_package }}
+    - name: {{ nginx_kafka_package }}
     - source: https://github.com/brg-liuwei/ngx_kafka_module/releases/tag/v0.9.1
   cmd.wait:
     - cwd: {{ source }}
-    - name: tar -zxf {{ nginx-kafka_package }} -C {{ home }}
+    - name: tar -zxf {{ nginx_kafka_package }} -C {{ home }}
     - watch:
       - file: get-nginx-kafka
 
