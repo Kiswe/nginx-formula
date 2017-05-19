@@ -1,7 +1,7 @@
 {% set nginx = pillar.get('nginx', {}) -%}
 {% set home = nginx.get('home', '/var/www') -%}
 {% set source = nginx.get('source_root', '/usr/local/src') -%}
-{% set librdkafka_package = source + '/librdkafka-' + 0.9.5 + '.tar.gz' -%}
+{% set librdkafka_package = source + '/librdkafka-' + '0.9.5' + '.tar.gz' -%}
 {% set nginxkafka_package = source + '/nginx_kafka_module-' + '0.9.1' + '.tar.gz' -%}
 
 
